@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Twitter</title>
     <!-- font awesome -->
     <link
       rel="stylesheet"
@@ -35,6 +35,28 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-6">
+            <div class="todo-content">
+              <div class="input-area">
+                <input
+                  type="text"
+                  id="tweetInput"
+                  placeholder="Enter a tweet"
+                />
+                <button id="addBtn" onclick="addTweet()">Tweet</button>
+              </div>
+
+              <div class="todo-area">
+                <ul id="tweetList"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- JS -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -51,5 +73,7 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./js/index.js"></script>
   </body>
 </html>
