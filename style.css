@@ -3,7 +3,24 @@
 /* END OF HUONG'S PART*/
 
 /* START OF WILLIAM'S PART*/
+.test{
+    border:1px solid red;
+    height: 500px;
+}
 
+#search {
+    border-radius: 30px;
+    height: 10px;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    background-color: #e6ecf0;
+}
+
+.list-styling{
+    background-color: #e6ecf0;
+    margin-bottom: 0px;
+}
 /* END OF WILLIAM'S PART*/
 
 /* START OF JUN YOUNG'S PART*/
