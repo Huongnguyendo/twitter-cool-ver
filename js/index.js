@@ -1,5 +1,5 @@
 // START OF HUONG'S PART
-console.log("hihi");
+
 // END OF HUONG'S PART
 
 // START OF WILLIAM'S PART
