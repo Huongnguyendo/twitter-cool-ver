@@ -1,96 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- font awesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-      crossorigin="anonymous"
-    />
 
-    <!-- Roboto font embed -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
 
-    <!-- BOOTSTRAP -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
+  <!-- Roboto font embed -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" />
 
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-<div class="row">
-    <div class="col-3 test"></div>
-    <div class="col-6 test"></div>
-    <div class="col-3 test">
-      <div class="pt-3 pr-5">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" id="search">
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="col-3">
+    <div class="pt-3 pr-5">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" id="search">
+    </div>
+    <div id="trending" class="py-3 pr-5">
+      <ul class="list-group rounded">
+        <li class="list-group-item h5 list-styling">Trends for you</li>
+        <li class="list-group-item list-group-item-action">#Vietnam</li>
+        <li class="list-group-item list-group-item-action">#Coderscool</li>
+        <li class="list-group-item list-group-item-action">#BurgersForLife</li>
+        <li class="list-group-item list-group-item-action">#HCMC</li>
+        <li class="list-group-item list-group-item-action">#Pizza</li>
+      </ul>
+    </div>
+    <div id="toFollow" class="pr-5">
+      <ul class="list-group rounded">
+        <li class="list-group-item h5 list-styling">Who to follow</li>
+        <li class="list-group-item list-group-item-action">@thisisme</li>
+        <li class="list-group-item list-group-item-action">@hellothere</li>
+        <li class="list-group-item list-group-item-action">@amazingsuperman</li>
+        <li class="list-group-item list-group-item-action">@choupichoupa</li>
+        <li class="list-group-item list-group-item-action">@wethebest</li>
+      </ul>
+      <div class="row pt-2 px-1" style="justify-content: space-around;">
+        <a class="small" href="#">Terms</a>
+        <a class="small" href="#">Privacy</a>
+        <a class="small" href="#">Cookies</a>
+        <a class="small" href="#">Ads</a>
       </div>
-      <div id="trending" class="py-3 pr-5">
-        <ul class="list-group rounded">
-          <li class="list-group-item h5 list-styling">Trends for you</li>
-          <li class="list-group-item list-group-item-action">#Vietnam</li>
-          <li class="list-group-item list-group-item-action">#Coderscool</li>
-          <li class="list-group-item list-group-item-action">#BurgersForLife</li>
-          <li class="list-group-item list-group-item-action">#HCMC</li>
-          <li class="list-group-item list-group-item-action">#Pizza</li>
-        </ul>
-      </div>
-      <div id="toFollow" class="pr-5">
-        <ul class="list-group rounded">
-          <li class="list-group-item h5 list-styling">Who to follow</li>
-          <li class="list-group-item list-group-item-action">@thisisme</li>
-          <li class="list-group-item list-group-item-action">@hellothere</li>
-          <li class="list-group-item list-group-item-action">@amazingsuperman</li>
-          <li class="list-group-item list-group-item-action">@choupichoupa</li>
-          <li class="list-group-item list-group-item-action">@wethebest</li>
-        </ul>
-        <div class="row pt-2 px-1" style="justify-content: space-around;">
-          <a class="small" href="#">Terms</a>
-          <a class="small" href="#">Privacy</a>
-          <a class="small" href="#">Cookies</a>
-          <a class="small" href="#">Ads</a>
-        </div>
-        <div class="small">© 2020 Twitter, Inc.</div>
-
-
-      </div>
+      <div class="small">© 2020 Twitter, Inc.</div>
     </div>
   </div>
 
 
 
-    <!-- JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
