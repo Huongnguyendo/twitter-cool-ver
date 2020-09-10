@@ -17,5 +17,33 @@
 /* END OF WILLIAM'S PART*/
 
 /* START OF JUN YOUNG'S PART*/
+.jytwitterlogo1 {
+	padding-left: 2cm;
+	padding-top: 1cm;
+}
+.jytwitterlogo2 {
+	width: auto;
+	height: 3cm;
+}
+.jynav1 {
+	font-size: 0.8cm;
+	padding-left: 0.7cm;
+}
+.jynav2 {
+	padding-top: 0.5cm;
+	/* background-color: black; */
+	width: 6.5cm;
+}
+.jynav2:hover {
+	color: #1da1f2;
+	text-shadow: 0px 0px 30px #1da1f2;
+	-moz-transition: all 0.2s ease-in;
+	-o-transition: all 0.2s ease-in;
+	-webkit-transition: all 0.2s ease-in;
+	transition: all 0.2s ease-in;
+}
+.jynavicon {
+	padding-right: 0.5cm;
+}
 
 /* END OF JUN YOUNG'S PART*/
