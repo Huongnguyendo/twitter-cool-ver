@@ -1,5 +1,15 @@
 /* START OF HUONG'S PART */
+.tweet {
+	border: 1px solid gray;
+}
 
+.hearted {
+	color: red;
+}
+
+#tweetList {
+	padding-inline-start: 0 !important;
+}
 /* END OF HUONG'S PART*/
 
 /* START OF WILLIAM'S PART*/
@@ -34,7 +44,5 @@
 }
 .jynavicon {
 	padding-right: 0.5cm;
-}
-.jynav3 {
 }
 /* END OF JUN YOUNG'S PART*/
