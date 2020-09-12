@@ -92,13 +92,13 @@
 
           <!-- Huong -->
           <div class="col-12 col-sm-6 col-md-6">
-            <div class="todo-content">
+            <div>
               <div class="input-area">
                 <textarea
                   rows="4"
                   cols="65"
                   id="tweetInput"
-                  placeholder="Enter a tweet"
+                  placeholder="What's happening?"
                   maxlength="140"
                 ></textarea>
                 <div class="tweet-operation">
@@ -107,14 +107,19 @@
                 </div>
               </div>
 
-              <div class="todo-area">
-                <ul id="tweetList"></ul>
-              </div>
+              <ul id="tweetList"></ul>
             </div>
           </div>
           <div class="col-3">
             <div class="pt-3 pr-5">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" id="search" oninput="searchFilter()">
+              <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Search..."
+                aria-label="Search"
+                id="search"
+                oninput="searchFilter()"
+              />
             </div>
             <div id="trending" class="py-3 pr-5">
               <ul class="list-group rounded">
