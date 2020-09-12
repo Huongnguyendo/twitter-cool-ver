@@ -5,6 +5,11 @@ let id = 0;
 let hashtag = [];
 let userHandle = []
 
+let maxInput = 140;
+
+// input area
+let tweetInput = document.getElementById("tweetInput");
+
 const addTweet = () => {
   //1. get the value from input
   let tweet = document.getElementById("tweetInput").value;
@@ -28,10 +33,14 @@ const addTweet = () => {
     id++;
     //2. insert into tweet list
     let tweetItem = {
-      user: "Huong",
       id: id,
-      like: false,
       content: newTweetItem,
+      user: "Huong",
+      timePosted: null,
+      deleted: false,
+      comments: [],
+      likes: [],
+      hashtag: [],
     };
     tweetList.unshift(tweetItem);
 
@@ -49,6 +58,24 @@ const addTweet = () => {
   // render tweet list
   renderTweets(tweetList);
 };
+
+//check textarea input
+document.getElementById("tweetInput").addEventListener("input", (e) => {
+  let message = e.target.value;
+
+  let textRemain = maxInput - message.length;
+  document.getElementById("remain").innerHTML = `${textRemain} characters left`;
+
+  if (textRemain < 0) {
+    document.getElementById("remain").style = "color:red";
+    document.getElementById("addBtn").disabled = true;
+  } else {
+    document.getElementById("remain").style = "color:black";
+    document.getElementById("addBtn").disabled = false;
+  }
+});
+
+// --------------------------
 
 for (let i = 0; i < tweetList.length; i++) {
   console.log(tweetList[i].user);
@@ -98,52 +125,6 @@ const renderTweets = (tweetList) => {
     .join("");
 
   document.getElementById("tweetList").innerHTML = tweetsHTML;
-};
-
-const renderTodos = () => {
-  // clear
-  document.getElementById("todoList").innerHTML = "";
-  document.getElementById("completeList").innerHTM = "";
-
-  // show Todo list on web browser
-  let tempUndoneList = todoList.filter((task) => task.isDone == false);
-  let tempDoneList = todoList.filter((task) => task.isDone == true);
-  let unDoneHTML = tempUndoneList
-    .map(
-      (item) => `
-    <li>${item.content}
-        <div class="buttons">
-            <button class="btn deleteBtn" onclick="deleteTask(${item.id})">
-                <i class="fa fa-trash"></i>
-            </button>
-            <button class="btn completeBtn" onclick="completeTask(${item.id})">
-                <i class="fa fa-check-circle"></i>
-            </button>
-        </div>
-    </li>
-  `
-    )
-    .join("");
-
-  let doneHTML = tempDoneList
-    .map(
-      (item) => `
-      <li>${item.content}
-          <div class="buttons">
-              <button class="btn deleteBtn" onclick="deleteTask(${item.id})">
-                  <i class="fa fa-trash"></i>
-              </button>
-              <button class="btn completedBtn">
-                <i class="fa fa-check-circle"></i>
-            </button>
-          </div>
-      </li>
-    `
-    )
-    .join("");
-
-  document.getElementById("todoList").innerHTML = unDoneHTML;
-  document.getElementById("completeList").innerHTML = doneHTML;
 };
 
 const deleteTweet = (id) => {

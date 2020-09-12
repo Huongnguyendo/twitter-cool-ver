@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Twitter</title>
+    <title>Netlify ver</title>
     <!-- font awesome -->
     <link
       rel="stylesheet"
@@ -12,19 +12,19 @@
       crossorigin="anonymous"
     />
 
-		<!-- Roboto font embed -->
-		<link
-			href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
-			rel="stylesheet"
-		/>
+    <!-- Roboto font embed -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
+      rel="stylesheet"
+    />
 
-		<!-- BOOTSTRAP -->
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-			integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-			crossorigin="anonymous"
-		/>
+    <!-- BOOTSTRAP -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
 
     <link
       rel="stylesheet"
@@ -89,17 +89,22 @@
               </li>
             </ul>
           </div>
-          
+
           <!-- Huong -->
           <div class="col-12 col-sm-6 col-md-6">
             <div class="todo-content">
               <div class="input-area">
-                <input
-                  type="text"
+                <textarea
+                  rows="4"
+                  cols="65"
                   id="tweetInput"
                   placeholder="Enter a tweet"
-                />
-                <button id="addBtn" onclick="addTweet()">Tweet</button>
+                  maxlength="140"
+                ></textarea>
+                <div class="tweet-operation">
+                  <span id="remain" class="mr-3"></span>
+                  <button id="addBtn" onclick="addTweet()">Tweet</button>
+                </div>
               </div>
 
               <div class="todo-area">
@@ -115,8 +120,12 @@
               <ul class="list-group rounded">
                 <li class="list-group-item h5 list-styling">Trends for you</li>
                 <li class="list-group-item list-group-item-action">#Vietnam</li>
-                <li class="list-group-item list-group-item-action">#Coderscool</li>
-                <li class="list-group-item list-group-item-action">#BurgersForLife</li>
+                <li class="list-group-item list-group-item-action">
+                  #Coderscool
+                </li>
+                <li class="list-group-item list-group-item-action">
+                  #BurgersForLife
+                </li>
                 <li class="list-group-item list-group-item-action">#HCMC</li>
                 <li class="list-group-item list-group-item-action">#Pizza</li>
               </ul>
@@ -124,13 +133,23 @@
             <div id="toFollow" class="pr-5">
               <ul class="list-group rounded">
                 <li class="list-group-item h5 list-styling">Who to follow</li>
-                <li class="list-group-item list-group-item-action">@thisisme</li>
-                <li class="list-group-item list-group-item-action">@hellothere</li>
-                <li class="list-group-item list-group-item-action">@amazingsuperman</li>
-                <li class="list-group-item list-group-item-action">@choupichoupa</li>
-                <li class="list-group-item list-group-item-action">@wethebest</li>
+                <li class="list-group-item list-group-item-action">
+                  @thisisme
+                </li>
+                <li class="list-group-item list-group-item-action">
+                  @hellothere
+                </li>
+                <li class="list-group-item list-group-item-action">
+                  @amazingsuperman
+                </li>
+                <li class="list-group-item list-group-item-action">
+                  @choupichoupa
+                </li>
+                <li class="list-group-item list-group-item-action">
+                  @wethebest
+                </li>
               </ul>
-              <div class="row pt-2 px-1" style="justify-content: space-around;">
+              <div class="row pt-2 px-1" style="justify-content: space-around">
                 <a class="small" href="#">Terms</a>
                 <a class="small" href="#">Privacy</a>
                 <a class="small" href="#">Cookies</a>
