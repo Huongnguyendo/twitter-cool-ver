@@ -15,6 +15,10 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.tweet-content {
+  word-break: break-all;
+}
 /* END OF HUONG'S PART*/
 
 /* START OF WILLIAM'S PART*/

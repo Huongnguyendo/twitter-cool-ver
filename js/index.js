@@ -21,7 +21,7 @@ const addTweet = () => {
       timePosted: null,
       deleted: false,
       comments: [],
-      likes: [],
+      liked: false,
       hashtag: [],
     };
     tweetList.unshift(tweetItem);
@@ -70,9 +70,49 @@ const renderTweets = (tweetList) => {
   // show tweet list on web browser
 
   let tweetsHTML = tweetList
-    .map(
-      (item) => `
-      <div class="tweet">
+    .map((item) => {
+
+      //when tweet has retweets
+      if ('originTweetID' in item) {
+        return `<form>
+        <div class="card nguyen-card" style="width: 100%;">
+            <div class="card-body nguyen-card-body d-flex">
+                <div class="left col-2">
+                    <img src="logo.png" style="max-width:100%">
+                </div>
+                <div class="right col-10">
+                    <h5 class="card-title">${item.user}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@${item.user}</h6>
+                    <p class="card-text">${item.retweetMessage}</p>
+                    <a href="#" class="card-link" onclick="toggleLike('${item.id}')">${checkIfUserHasLike(item) ? "Unlike" : "Like"}</a>
+                    <a href="#" class="card-link" onclick="comment('${item.id}')">Comment</a>
+                    <a href="#" class="card-link" onclick="retweet('${item.id}')">Retweet</a>
+                    <a href="#" class="card-link" onclick="deleteTweet(${item.id})">Delete</a>
+                </div>      
+            </div>
+          </div>
+          <div class="retweet-container d-flex pb-3" style="width: 100%">
+              <div class="col-2">
+              </div>
+              <div class="col-10">
+                <div class="card nguyen-card mt-3" style="width: 100%;">
+                    <div class="card-body nguyen-card-body d-flex justify-content-center">
+                        <div class="left col-2">
+                            <img src="logo.png" width="60px">
+                        </div>
+                        <div class="right col-10">
+                            <h5 class="card-title">${item.originUser}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@earlpullara</h6>
+                            <p class="card-text">${item.originContent}</p>
+                        </div>      
+                    </div>
+                  </div>
+              </div>
+          </div>   
+        </form>`
+    }
+
+      return `<div class="tweet">
         <p class="user-name">
             ${item.user}
             <span class="user-acc"></span>
@@ -102,8 +142,8 @@ const renderTweets = (tweetList) => {
             
         </div>
   <div>
-`
-    )
+`;
+    })
     .join("");
 
   document.getElementById("tweetList").innerHTML = tweetsHTML;
@@ -135,12 +175,54 @@ const getData = () => {
   renderTweets(tweetList);
 };
 
+// check if liked
+function checkIfLiked(item) {
+  return (item.liked == true)  
+}
+
 // toggle heart color
 const toggleHeartColor = (id) => {
-  console.log(id);
-  let heart = document.querySelector(".heartBtn ");
-  heart.classList.add("hearted");
+  
+
+  let likedItem = tweetList.map((item) => item.id == id) 
+
+    likedItem.liked = true;
+
+    tweetList.map((item) => {
+      if(item.liked == true);
+    })
+  if (item.likeStatus == true) {
+    heart = `<i class="fas fa-heart fill-red"></i>`
+} else if (item.likeStatus == false) {
+    heart = `<i class="far fa-heart fill-none"></i>`
+}
 };
+
+function retweet(originID) {
+  let originTweet = tweetList.find((tweet) => tweet.id == originID);
+  console.log("originTweet", originTweet);
+  const retweetMessage = prompt("What do you think about this?");
+  // original tweet that you want to retweet
+  let retweetObject = {
+    id: id,
+    originContent: originTweet.content,
+    originTweetID: originID,
+    originUser: originTweet.user,
+    retweetMessage: retweetMessage,
+    isLiked: false,
+    deleted: false,
+    timePosted: null,
+    comments: [],
+    likes: [],
+    hashtag: [],
+    user: currentUser,
+  };
+  console.log("retweetObject", retweetObject);
+  tweetList.unshift(retweetObject);
+  render(tweetList);
+  console.log(tweetList);
+  id++;
+}
 
 getData();
 
