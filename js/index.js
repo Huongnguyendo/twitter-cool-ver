@@ -49,10 +49,11 @@ document.getElementById("tweetInput").addEventListener("input", (e) => {
   document.getElementById("remain").innerHTML = `${textRemain} characters left`;
 
   if (textRemain < 0) {
+    document.getElementById("remain").style = "color:red";
     document.getElementById("addBtn").disabled = true;
   } else {
     document.getElementById("remain").style = "color:black";
-    document.getElementById("btn-post").disabled = false;
+    document.getElementById("addBtn").disabled = false;
   }
 });
 
