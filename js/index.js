@@ -3,6 +3,11 @@
 let tweetList = [];
 let id = 0;
 
+let maxInput = 140;
+
+// input area
+let tweetInput = document.getElementById("tweetInput");
+
 const addTweet = () => {
   //1. get the value from input
   let tweet = document.getElementById("tweetInput").value;
@@ -10,12 +15,16 @@ const addTweet = () => {
     id++;
     //2. insert into tweet list
     let tweetItem = {
-      user: "Huong",
       id: id,
-      like: false,
+      user: "Huong",
       content: tweet,
+      timePosted: null,
+      deleted: false,
+      comments: [],
+      likes: [],
+      hashtag: [],
     };
-    tweetList.push(tweetItem);
+    tweetList.unshift(tweetItem);
 
     console.log(id);
   }
@@ -31,6 +40,23 @@ const addTweet = () => {
   // render tweet list
   renderTweets(tweetList);
 };
+
+//check textarea input
+document.getElementById("tweetInput").addEventListener("input", (e) => {
+  let message = e.target.value;
+
+  let textRemain = maxInput - message.length;
+  document.getElementById("remain").innerHTML = `${textRemain} characters left`;
+
+  if (textRemain < 0) {
+    document.getElementById("addBtn").disabled = true;
+  } else {
+    document.getElementById("remain").style = "color:black";
+    document.getElementById("btn-post").disabled = false;
+  }
+});
+
+// --------------------------
 
 for (let i = 0; i < tweetList.length; i++) {
   console.log(tweetList[i].user);
