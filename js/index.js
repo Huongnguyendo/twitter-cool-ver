@@ -13,10 +13,10 @@ const addTweet = () => {
     let newTweetItem = tweet.split(' ').map((word, index) => {
         if (word.startsWith('#')) {
             hashtag.push(word);
-            return `<a href="#" onclick="">${word}</a>`;
+            return `<a href="#" onclick="filterTweets('${word}')">${word}</a>`;
         } else if (word.startsWith("@")) {
             userHandle.push(word);
-            return `<a href="#" onclick="">${word}</a>`;
+            return `<a href="#" onclick="filterTweets('${word}')">${word}</a>`;
         } else if (word.match(/\.(jpeg|jpg|gif|png)$/) != null) {
             return `<img src="${word}" alt="image" width="50px" height="50px">`;
         } else {
@@ -184,6 +184,19 @@ getData();
 // END OF HUONG'S PART
 
 // START OF WILLIAM'S PART
+
+// Filter by hastag or username handle
+const filterTweets = (filterItem) => {
+    let filteredList = tweetList.filter(tweetItem => tweetItem.content.includes(filterItem));
+    renderTweets(filteredList);
+}
+
+// Search on input in search box
+const searchFilter = () => {
+    let filterItem = document.getElementById("search").value
+    let filteredList = tweetList.filter(tweetItem => tweetItem.content.includes(filterItem));
+    renderTweets(filteredList);
+}
 
 // END OF WILLIAM'S PART
 
