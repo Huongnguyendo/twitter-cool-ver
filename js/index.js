@@ -44,7 +44,7 @@ const addTweet = () => {
       comments: [],
       liked: false,
       hashtag: [],
-      parents: null,
+      // parents: null,
     };
     tweetList.unshift(tweetItem);
 
@@ -105,7 +105,6 @@ const renderTweets = (tweetList) => {
                     <h5 class="card-title">${item.user}</h5>
                     <p class="card-text">${item.retweetMessage}</p>
                     
-
                     <div>
                       <button class="btn commentBtn" >
                           <i class="fa fa-comment"></i>
@@ -132,7 +131,7 @@ const renderTweets = (tweetList) => {
   
             </div>
 
-            <div class="retweet-container d-flex pb-3" style="width: 100%">
+            <div class="d-flex pb-3" style="width: 100%">
               <div class="col-2">
               </div>
               <div class="col-10">
@@ -148,43 +147,52 @@ const renderTweets = (tweetList) => {
                     </div>
                   </div>
               </div>
-          </div>
+            </div>
 
           </div>
              
         `;
       }
 
-      return `<div class="tweet">
-        <p class="user-name">
-            ${item.user}
-            <span class="user-acc"></span>
-            <span class="time-posted"></span>
-        </p>
-        <p class="tweet-content">${item.content}</p>
-        <div>
-            <button class="btn commentBtn" >
-                <i class="fa fa-comment"></i>
-                <span class="comment-count"></span>
-            </button>
-            <button class="btn retweetBtn" onclick="retweet(${item.id})">
-                <i class="fa fa-retweet"></i>
-                <span class="retweet-count"></span>
-            </button>
-            <button class="btn heartBtn">
-                <i class="fa fa-heart"></i>
-                <span class="heart-count"></span>
-            </button>
-            <button class="btn heartBtn" >
-                <i class="fa fa-share-square"></i>
-                <span class="share-count"></span>
-            </button>
-            <button class="btn deleteBtn" onclick="deleteTweet('${item.id}')">
-                <i class="fa fa-trash"></i>
-            </button>
-            
-        </div>
-  <div>
+      return `
+      
+      
+                <div class="card mt-3" style="width: 100%;">
+                    <div class="card-body d-flex justify-content-center">
+                        <div class="left col-2">
+                            <img src="" width="60px">
+                        </div>
+                        <div class="right col-10">
+                            <h5 class="card-title">${item.user}</h5>
+                            <p class="card-text">${item.content}</p>
+                            <div>
+                                <button class="btn commentBtn" >
+                                    <i class="fa fa-comment"></i>
+                                    <span class="comment-count"></span>
+                                </button>
+                                <button class="btn retweetBtn" onclick="retweet(${item.id})">
+                                    <i class="fa fa-retweet"></i>
+                                    <span class="retweet-count"></span>
+                                </button>
+                                <button class="btn heartBtn">
+                                    <i class="fa fa-heart"></i>
+                                    <span class="heart-count"></span>
+                                </button>
+                                <button class="btn heartBtn" >
+                                    <i class="fa fa-share-square"></i>
+                                    <span class="share-count"></span>
+                                </button>
+                                <button class="btn deleteBtn" onclick="deleteTweet('${item.id}')">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                              
+                            </div>
+                          </div>      
+                      </div>
+                  </div>
+              
+      
+      
 `;
     })
     .join("");
@@ -248,7 +256,7 @@ function retweet(originID) {
     liked: false,
     timePosted: null,
     deleted: false,
-    parents: null,
+    // parents: null,
     hashtag: [],
 
     comments: [],

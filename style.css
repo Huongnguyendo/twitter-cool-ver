@@ -1,6 +1,6 @@
 /* START OF HUONG'S PART */
-.tweet {
-  border: 1px solid gray;
+textarea {
+  width: 100%;
 }
 
 .hearted {
