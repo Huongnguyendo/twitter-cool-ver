@@ -1,6 +1,6 @@
 /* START OF HUONG'S PART */
-.tweet {
-  border: 1px solid gray;
+textarea {
+  width: 100%;
 }
 
 .hearted {
@@ -14,6 +14,10 @@
 .tweet-operation {
   display: flex;
   justify-content: flex-end;
+}
+
+.tweet-content {
+  word-break: break-all;
 }
 /* END OF HUONG'S PART*/
 
