@@ -2,22 +2,40 @@
 
 let tweetList = [];
 let id = 0;
+let hashtag = [];
+let userHandle = []
 
 const addTweet = () => {
   //1. get the value from input
   let tweet = document.getElementById("tweetInput").value;
-  if (tweet) {
+  
+    // Scan for hastags, username handles and images
+    let newTweetItem = tweet.split(' ').map((word, index) => {
+        if (word.startsWith('#')) {
+            hashtag.push(word);
+            return `<a href="#" onclick="">${word}</a>`;
+        } else if (word.startsWith("@")) {
+            userHandle.push(word);
+            return `<a href="#" onclick="">${word}</a>`;
+        } else if (word.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+            return `<img src="${word}" alt="image" width="50px" height="50px">`;
+        } else {
+            return word;
+        }
+    }).join(" ");
+    
+  if (newTweetItem) {
     id++;
     //2. insert into tweet list
     let tweetItem = {
       user: "Huong",
       id: id,
       like: false,
-      content: tweet,
+      content: newTweetItem,
     };
-    tweetList.push(tweetItem);
+    tweetList.unshift(tweetItem);
 
-    console.log(id);
+    console.log(id, "hastag:",hashtag, "userHandle:",userHandle);
   }
 
   // clear input field
