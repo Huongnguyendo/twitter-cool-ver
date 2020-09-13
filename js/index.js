@@ -191,7 +191,7 @@ const renderTweets = (tweetList) => {
             return `<div class="d-flex pb-3" style="width: 100%">
             
             
-              <div class="card " style="width: 100%;">
+              <div class="card mt-1" style="width: 100%;">
                   <div class="card-body d-flex justify-content-center">
                       <div class="left col-2">
                           <img src="" style="max-width:100%">
