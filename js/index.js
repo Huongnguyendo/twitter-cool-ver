@@ -87,23 +87,23 @@ document.getElementById("tweetInput").addEventListener("input", (e) => {
 // --------------------------
 
 const renderTweets = (tweetList) => {
-	// clear
-	document.getElementById("tweetList").innerHTML = "";
+  // clear
+  document.getElementById("tweetList").innerHTML = "";
 
-	// show tweet list on web browser
+  // show tweet list on web browser
 
-	let tweetsHTML = tweetList
-		.map((item) => {
-			//when tweet has retweets
-			// if liked
-			if (item.liked) {
-				heart = `<i class="fas fa-heart fill-red"></i>`;
-			} else {
-				heart = `<i class="far fa-heart fill-none"></i>`;
-			}
+  let tweetsHTML = tweetList
+    .map((item) => {
+      // if liked
+      if (item.liked) {
+        heart = `<i class="fas fa-heart fill-red"></i>`;
+      } else {
+        heart = `<i class="far fa-heart fill-none"></i>`;
+      }
 
-			if (item.originTweetID) {
-				return `
+      //when tweet has retweets
+      if (item.originTweetID) {
+        return `
         <div class="card" style="width: 100%;">
             <div class="card-body d-flex">
                 <div class="left col-2">
@@ -184,14 +184,14 @@ const renderTweets = (tweetList) => {
         `;
 			}
 
-			// when tweet has comment
-			else if (item.comments.length) {
-				let commentHTML = item.comments
-					.map((comment) => {
-						return `<div class="d-flex pb-3" style="width: 100%">
+      // if tweet has comment
+      else if (item.comments.length) {
+        let commentHTML = item.comments
+          .map((comment) => {
+            return `<div class="d-flex pb-3" style="width: 100%">
             
             
-              <div class="card " style="width: 100%;">
+              <div class="card mt-1" style="width: 100%;">
                   <div class="card-body d-flex justify-content-center">
                       <div class="left col-2">
                           <img src="" style="max-width:100%">
