@@ -53,8 +53,9 @@ body {
   padding-top: 1cm; */
 /* } */
 .jytwitterlogo2 {
-  width: auto;
+  width: 3cm;
   height: 3cm;
+  border-radius: 50%;
 }
 .jynav1 {
   font-size: 1.2rem;
