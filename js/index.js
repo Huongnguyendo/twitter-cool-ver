@@ -94,7 +94,6 @@ const renderTweets = (tweetList) => {
 
   let tweetsHTML = tweetList
     .map((item) => {
-      //when tweet has retweets
       // if liked
       if (item.liked) {
         heart = `<i class="fas fa-heart fill-red"></i>`;
@@ -102,6 +101,7 @@ const renderTweets = (tweetList) => {
         heart = `<i class="far fa-heart fill-none"></i>`;
       }
 
+      //when tweet has retweets
       if (item.originTweetID) {
         return `
         <div class="card" style="width: 100%;">
@@ -184,7 +184,7 @@ const renderTweets = (tweetList) => {
         `;
       }
 
-      // when tweet has comment
+      // if tweet has comment
       else if (item.comments.length) {
         let commentHTML = item.comments
           .map((comment) => {
