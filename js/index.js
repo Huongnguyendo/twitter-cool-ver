@@ -99,7 +99,7 @@ const renderTweets = (tweetList) => {
         <div class="card" style="width: 100%;">
             <div class="card-body d-flex">
                 <div class="left col-2">
-                    <img src="" style="max-width:100%">
+                    <img src="https://pm1.narvii.com/6288/b8a1036aed00d8d535b199556bede12f96aba9c5_00.jpg" style="max-width:100%; border-radius:50%;">
                 </div>
                 <div class="right col-10">
                     <h5 class="card-title">${item.user}</h5>
@@ -138,7 +138,7 @@ const renderTweets = (tweetList) => {
                 <div class="card mt-3" style="width: 100%;">
                     <div class="card-body d-flex justify-content-center">
                         <div class="left col-2">
-                            <img src="" width="60px">
+                            <img src="https://pm1.narvii.com/6288/b8a1036aed00d8d535b199556bede12f96aba9c5_00.jpg" style="max-width:100%; border-radius:50%;">
                         </div>
                         <div class="right col-10">
                             <h5 class="card-title">${item.originUser}</h5>
@@ -160,7 +160,7 @@ const renderTweets = (tweetList) => {
                 <div class="card mt-3" style="width: 100%;">
                     <div class="card-body d-flex justify-content-center">
                         <div class="left col-2">
-                            <img src="" width="60px">
+                            <img src="https://pm1.narvii.com/6288/b8a1036aed00d8d535b199556bede12f96aba9c5_00.jpg" style="max-width:100%; border-radius:50%;">
                         </div>
                         <div class="right col-10">
                             <h5 class="card-title">${item.user}</h5>

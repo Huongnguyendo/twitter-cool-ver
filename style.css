@@ -39,13 +39,19 @@ textarea {
 .jynav3 {
   display: flex;
 }
+
+body {
+  background-image: url("https://images6.alphacoders.com/475/475509.jpg");
+  background-position-x: right;
+  background-size: cover;
+}
 /* END OF WILLIAM'S PART*/
 
 /* START OF JUN YOUNG'S PART*/
-.jytwitterlogo1 {
+/* .jytwitterlogo1 { */
   /* padding-left: 2cm;
   padding-top: 1cm; */
-}
+/* } */
 .jytwitterlogo2 {
   width: auto;
   height: 3cm;
