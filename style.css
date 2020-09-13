@@ -35,25 +35,44 @@ textarea {
   background-color: #e6ecf0;
   margin-bottom: 0px;
 }
+
+.jynav3 {
+  display: flex;
+}
+
+@font-face {
+  font-family: doraemon;
+  src: url("./font/DORAEMON.ttf");
+ }
+
+body {
+  background-image: url("https://images6.alphacoders.com/475/475509.jpg");
+  background-position-x: right;
+  background-size: cover;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+
 /* END OF WILLIAM'S PART*/
 
 /* START OF JUN YOUNG'S PART*/
-.jytwitterlogo1 {
-  padding-left: 2cm;
-  padding-top: 1cm;
-}
+/* .jytwitterlogo1 { */
+  /* padding-left: 2cm;
+  padding-top: 1cm; */
+/* } */
 .jytwitterlogo2 {
-  width: auto;
+  width: 3cm;
   height: 3cm;
+  border-radius: 50%;
 }
 .jynav1 {
-  font-size: 0.8cm;
-  padding-left: 0.7cm;
+  font-size: 1.2rem;
+  /* padding-left: 0.7cm; */
 }
 .jynav2 {
   padding-top: 0.5cm;
   /* background-color: black; */
-  width: 6.5cm;
+  /* width: 6.5cm; */
 }
 .jynav2:hover {
   color: #1da1f2;
@@ -65,5 +84,6 @@ textarea {
 }
 .jynavicon {
   padding-right: 0.5cm;
+  font-size: xx-large;
 }
 /* END OF JUN YOUNG'S PART*/
