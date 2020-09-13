@@ -11,6 +11,9 @@ let maxInput = 140;
 let tweetInput = document.getElementById("tweetInput");
 
 const addTweet = () => {
+  // clear remaining
+  document.getElementById("remain").innerHTML = "";
+
   //1. get the value from input
   let tweet = document.getElementById("tweetInput").value;
 
@@ -44,7 +47,6 @@ const addTweet = () => {
       comments: [],
       liked: false,
       hashtag: [],
-      // parents: null,
     };
     tweetList.unshift(tweetItem);
 
@@ -81,10 +83,6 @@ document.getElementById("tweetInput").addEventListener("input", (e) => {
 
 // --------------------------
 
-for (let i = 0; i < tweetList.length; i++) {
-  console.log(tweetList[i].user);
-}
-
 const renderTweets = (tweetList) => {
   // clear
   document.getElementById("tweetList").innerHTML = "";
@@ -102,15 +100,24 @@ const renderTweets = (tweetList) => {
                     <img src="https://pm1.narvii.com/6288/b8a1036aed00d8d535b199556bede12f96aba9c5_00.jpg" style="max-width:100%; border-radius:50%;">
                 </div>
                 <div class="right col-10">
-                    <h5 class="card-title">${item.user}</h5>
+                    <h5 class="card-title">${item.user}
+                      <span class="text-muted">@huongisme</span>
+                      <span class="post-date">${moment(item.postTime).fromNow(
+                        true
+                      )}</span>
+                    </h5>
                     <p class="card-text">${item.retweetMessage}</p>
                     
                     <div>
-                      <button class="btn commentBtn" >
+                      <button class="btn commentBtn" onclick="comment('${
+                        item.id
+                      }')">
                           <i class="fa fa-comment"></i>
                           <span class="comment-count"></span>
                       </button>
-                      <button class="btn retweetBtn" onclick="retweet(${item.id})">
+                      <button class="btn retweetBtn" onclick="retweet(${
+                        item.id
+                      })">
                           <i class="fa fa-retweet"></i>
                           <span class="retweet-count"></span>
                       </button>
@@ -122,7 +129,9 @@ const renderTweets = (tweetList) => {
                           <i class="fa fa-share-square"></i>
                           <span class="share-count"></span>
                       </button>
-                      <button class="btn deleteBtn" onclick="deleteTweet('${item.id}')">
+                      <button class="btn deleteBtn" onclick="deleteTweet('${
+                        item.id
+                      }')">
                           <i class="fa fa-trash"></i>
                       </button>
                     </div>
@@ -141,7 +150,12 @@ const renderTweets = (tweetList) => {
                             <img src="https://pm1.narvii.com/6288/b8a1036aed00d8d535b199556bede12f96aba9c5_00.jpg" style="max-width:100%; border-radius:50%;">
                         </div>
                         <div class="right col-10">
-                            <h5 class="card-title">${item.originUser}</h5>
+                            <h5 class="card-title">${item.originUser}
+                              <span class="text-muted">@huongisme</span>
+                              <span class="post-date">${moment(
+                                item.postTime
+                              ).fromNow(true)}</span>
+                            </h5>
                             <p class="card-text">${item.originContent}</p>
                         </div>      
                     </div>
@@ -154,6 +168,84 @@ const renderTweets = (tweetList) => {
         `;
       }
 
+      // when tweet has comment
+      else if (item.comments.length) {
+        let commentHTML = item.comments
+          .map((comment) => {
+            return `<div class="d-flex pb-3" style="width: 100%">
+            
+            
+              <div class="card " style="width: 100%;">
+                  <div class="card-body d-flex justify-content-center">
+                      <div class="left col-2">
+                          <img src="" style="max-width:100%">
+                      </div>
+                      <div class="right col-10">
+                          <h5 class="card-title">${comment.user}
+                              <span class="text-muted">Replying to @${
+                                comment.user
+                              }</span>
+                              <span class="post-date">${moment(
+                                item.postTime
+                              ).fromNow(true)}</span>
+                            </h5>
+                          <p class="card-text">${comment.content}</p>
+                          </div>      
+                  </div>
+                </div>
+            
+        </div>`;
+          })
+          .join("");
+
+        return (
+          `<div class="card mt-3" style="width: 100%;">
+            <div class="card-body d-flex">
+                <div class="left col-2">
+                    <img src="" style="max-width:100%;">
+                </div>
+                <div class="right col-10">
+                    <h5 class="card-title">${item.user}
+                    <span class="text-muted">@huongisme</span>
+                    <span class="post-date">${moment(item.postTime).fromNow(
+                      true
+                    )}</span>
+                    </h5>
+                    <p class="card-text">${item.content}</p>
+                    <div>
+                      <button class="btn commentBtn" onclick="comment('${
+                        item.id
+                      }')">
+                          <i class="fa fa-comment"></i>
+                          <span class="comment-count"></span>
+                      </button>
+                      <button class="btn retweetBtn" onclick="retweet(${
+                        item.id
+                      })">
+                          <i class="fa fa-retweet"></i>
+                          <span class="retweet-count"></span>
+                      </button>
+                      <button class="btn heartBtn">
+                          <i class="fa fa-heart"></i>
+                          <span class="heart-count"></span>
+                      </button>
+                      <button class="btn heartBtn" >
+                          <i class="fa fa-share-square"></i>
+                          <span class="share-count"></span>
+                      </button>
+                      <button class="btn deleteBtn" onclick="deleteTweet('${
+                        item.id
+                      }')">
+                          <i class="fa fa-trash"></i>
+                      </button>
+                    </div>
+                </div>      
+            </div>
+          </div>` + commentHTML
+        );
+      }
+
+      // default tweet display
       return `
       
       
@@ -163,14 +255,23 @@ const renderTweets = (tweetList) => {
                             <img src="https://pm1.narvii.com/6288/b8a1036aed00d8d535b199556bede12f96aba9c5_00.jpg" style="max-width:100%; border-radius:50%;">
                         </div>
                         <div class="right col-10">
-                            <h5 class="card-title">${item.user}</h5>
+                            <h5 class="card-title">${item.user}
+                              <span class="text-muted">@huongisme</span>
+                              <span class="post-date">${moment(
+                                item.postTime
+                              ).fromNow(true)}</span>
+                            </h5>
                             <p class="card-text">${item.content}</p>
                             <div>
-                                <button class="btn commentBtn" >
+                                <button class="btn commentBtn" onclick="comment('${
+                                  item.id
+                                }')">
                                     <i class="fa fa-comment"></i>
                                     <span class="comment-count"></span>
                                 </button>
-                                <button class="btn retweetBtn" onclick="retweet(${item.id})">
+                                <button class="btn retweetBtn" onclick="retweet(${
+                                  item.id
+                                })">
                                     <i class="fa fa-retweet"></i>
                                     <span class="retweet-count"></span>
                                 </button>
@@ -182,7 +283,9 @@ const renderTweets = (tweetList) => {
                                     <i class="fa fa-share-square"></i>
                                     <span class="share-count"></span>
                                 </button>
-                                <button class="btn deleteBtn" onclick="deleteTweet('${item.id}')">
+                                <button class="btn deleteBtn" onclick="deleteTweet('${
+                                  item.id
+                                }')">
                                     <i class="fa fa-trash"></i>
                                 </button>
                               
@@ -242,9 +345,8 @@ const getData = () => {
 function retweet(originID) {
   // find original tweet
   let originTweet = tweetList.find((tweet) => tweet.id == originID);
-  console.log("originTweet", originTweet);
   // add comment
-  const retweetMessage = prompt("What do you think about this?");
+  const retweetMessage = prompt("Retweet this");
   // new id for retweet
   id++;
   let retweetObject = {
@@ -256,19 +358,36 @@ function retweet(originID) {
     liked: false,
     timePosted: null,
     deleted: false,
-    // parents: null,
     hashtag: [],
 
     comments: [],
     user: "Huong",
   };
-  console.log("retweetObject", retweetObject);
   tweetList.unshift(retweetObject);
   renderTweets(tweetList);
 
   saveData();
   console.log(tweetList);
-  // id++
+}
+
+// comment func
+function comment(originID) {
+  let originTweet = tweetList.find((tweet) => tweet.id == originID);
+  let commentContent = prompt("Add a comment on this tweet"); //get comment content
+  id++;
+  let commentObject = {
+    id: id,
+    content: commentContent,
+    originID: originID,
+    originContent: originTweet.content,
+    originUser: originTweet.user,
+    liked: false,
+    user: "Huong",
+  };
+  originTweet.comments.push(commentObject);
+  renderTweets(tweetList);
+
+  saveData();
 }
 
 getData();
