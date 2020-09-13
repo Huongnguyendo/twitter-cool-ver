@@ -1,9 +1,16 @@
 // START OF HUONG'S PART
+let currentUser = prompt("Welcome back: ");
+console.log(currentUser);
 
-let tweetList = [];
+let defaultAccount = "@JaianInTown";
+
 let id = 0;
 let hashtag = [];
 let userHandle = [];
+
+let tweetList = [];
+
+console.log("tweetlistnew: ", tweetList);
 
 let maxInput = 140;
 
@@ -41,7 +48,8 @@ const addTweet = () => {
     let tweetItem = {
       id: id,
       content: newTweetItem,
-      user: "Huong",
+      user: currentUser,
+      account: defaultAccount,
       timePosted: null,
       deleted: false,
       comments: [],
@@ -50,7 +58,7 @@ const addTweet = () => {
     };
     tweetList.unshift(tweetItem);
 
-    console.log(id, "hastag:", hashtag, "userHandle:", userHandle);
+    console.log(id, "hastag:", hashtag, "currentUser:", currentUser);
   }
 
   // clear input field
@@ -101,7 +109,9 @@ const renderTweets = (tweetList) => {
                 </div>
                 <div class="right col-10">
                     <h5 class="card-title">${item.user}
-                      <span class="text-muted">@huongisme</span>
+                      <span class="user-account text-muted">${
+                        item.account
+                      }</span>
                       <span class="post-date">${moment(item.postTime).fromNow(
                         true
                       )}</span>
@@ -151,7 +161,9 @@ const renderTweets = (tweetList) => {
                         </div>
                         <div class="right col-10">
                             <h5 class="card-title">${item.originUser}
-                              <span class="text-muted">@huongisme</span>
+                              <span class="user-account text-muted">${
+                                item.originalAccount
+                              }</span>
                               <span class="post-date">${moment(
                                 item.postTime
                               ).fromNow(true)}</span>
@@ -182,14 +194,16 @@ const renderTweets = (tweetList) => {
                       </div>
                       <div class="right col-10">
                           <h5 class="card-title">${comment.user}
-                              <span class="text-muted">Replying to @${
-                                comment.user
-                              }</span>
+                              <span class="text-muted">${comment.account}</span>
                               <span class="post-date">${moment(
                                 item.postTime
                               ).fromNow(true)}</span>
                             </h5>
+                            <p class="text-muted">Replying to ${
+                              comment.originalAccount
+                            }</p>
                           <p class="card-text">${comment.content}</p>
+                          
                           </div>      
                   </div>
                 </div>
@@ -206,7 +220,7 @@ const renderTweets = (tweetList) => {
                 </div>
                 <div class="right col-10">
                     <h5 class="card-title">${item.user}
-                    <span class="text-muted">@huongisme</span>
+                    <span class="user-account text-muted">${item.account}</span>
                     <span class="post-date">${moment(item.postTime).fromNow(
                       true
                     )}</span>
@@ -256,7 +270,9 @@ const renderTweets = (tweetList) => {
                         </div>
                         <div class="right col-10">
                             <h5 class="card-title">${item.user}
-                              <span class="text-muted">@huongisme</span>
+                              <span class="user-account text-muted">${
+                                item.account
+                              }</span>
                               <span class="post-date">${moment(
                                 item.postTime
                               ).fromNow(true)}</span>
@@ -355,13 +371,15 @@ function retweet(originID) {
     originTweetID: originID,
     originUser: originTweet.user,
     retweetMessage: retweetMessage,
+    originalAccount: originTweet.account,
+    account: defaultAccount,
     liked: false,
     timePosted: null,
     deleted: false,
     hashtag: [],
 
     comments: [],
-    user: "Huong",
+    user: currentUser,
   };
   tweetList.unshift(retweetObject);
   renderTweets(tweetList);
@@ -373,7 +391,7 @@ function retweet(originID) {
 // comment func
 function comment(originID) {
   let originTweet = tweetList.find((tweet) => tweet.id == originID);
-  let commentContent = prompt("Add a comment on this tweet"); //get comment content
+  let commentContent = prompt("Add a comment "); //get comment content
   id++;
   let commentObject = {
     id: id,
@@ -381,9 +399,21 @@ function comment(originID) {
     originID: originID,
     originContent: originTweet.content,
     originUser: originTweet.user,
+    originalAccount: originTweet.account,
+    account: defaultAccount,
     liked: false,
-    user: "Huong",
+
+    timePosted: null,
+    deleted: false,
+    hashtag: [],
+
+    user: currentUser,
   };
+  console.log("originID: ", originID);
+  console.log("originContent: ", originTweet.content);
+  console.log("originUser: ", originTweet.user);
+  console.log("originalAccount: ", originTweet.account);
+
   originTweet.comments.push(commentObject);
   renderTweets(tweetList);
 
