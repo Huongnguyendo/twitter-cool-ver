@@ -131,11 +131,13 @@ const renderTweets = (tweetList) => {
                           <i class="fa fa-retweet"></i>
                           <span class="retweet-count"></span>
                       </button>
-                      <button class="btn heartBtn">
+                      <button class="btn heartBtn" id="heart" onclick="toggleLike('${
+                        item.id
+                      }')">
                           <i class="fa fa-heart"></i>
                           <span class="heart-count"></span>
                       </button>
-                      <button class="btn heartBtn" >
+                      <button class="btn shareBtn" >
                           <i class="fa fa-share-square"></i>
                           <span class="share-count"></span>
                       </button>
@@ -239,11 +241,13 @@ const renderTweets = (tweetList) => {
                           <i class="fa fa-retweet"></i>
                           <span class="retweet-count"></span>
                       </button>
-                      <button class="btn heartBtn">
+                      <button class="btn heartBtn" id="heart" onclick="toggleLike('${
+                        item.id
+                      }')">
                           <i class="fa fa-heart"></i>
                           <span class="heart-count"></span>
                       </button>
-                      <button class="btn heartBtn" >
+                      <button class="btn shareBtn" >
                           <i class="fa fa-share-square"></i>
                           <span class="share-count"></span>
                       </button>
@@ -291,11 +295,13 @@ const renderTweets = (tweetList) => {
                                     <i class="fa fa-retweet"></i>
                                     <span class="retweet-count"></span>
                                 </button>
-                                <button class="btn heartBtn">
+                                <button class="btn heartBtn" id="heart" onclick="toggleLike('${
+                                  item.id
+                                }')">
                                     <i class="fa fa-heart"></i>
                                     <span class="heart-count"></span>
                                 </button>
-                                <button class="btn heartBtn" >
+                                <button class="btn shareBtn" >
                                     <i class="fa fa-share-square"></i>
                                     <span class="share-count"></span>
                                 </button>
@@ -358,7 +364,7 @@ const getData = () => {
   renderTweets(tweetList);
 };
 
-function retweet(originID) {
+const retweet = (originID) => {
   // find original tweet
   let originTweet = tweetList.find((tweet) => tweet.id == originID);
   // add comment
@@ -386,10 +392,10 @@ function retweet(originID) {
 
   saveData();
   console.log(tweetList);
-}
+};
 
 // comment func
-function comment(originID) {
+const comment = (originID) => {
   let originTweet = tweetList.find((tweet) => tweet.id == originID);
   let commentContent = prompt("Add a comment "); //get comment content
   id++;
@@ -409,16 +415,29 @@ function comment(originID) {
 
     user: currentUser,
   };
-  console.log("originID: ", originID);
-  console.log("originContent: ", originTweet.content);
-  console.log("originUser: ", originTweet.user);
-  console.log("originalAccount: ", originTweet.account);
 
   originTweet.comments.push(commentObject);
   renderTweets(tweetList);
 
   saveData();
-}
+};
+
+const toggleLike = (originID) => {
+  let targetTweet = tweetList.find((tweet) => tweet.id == originID);
+  // let targetIndex = tweetList.findIndex((tweet) => tweet.id == originID);
+
+  targetTweet.liked = !targetTweet.liked;
+
+  if (targetTweet.liked) {
+    document.getElementById("heart").style = "color:red";
+  } else {
+    document.getElementById("heart").style = "color:black";
+  }
+
+  // tweetList[targetIndex].liked = targetTweet.liked;
+
+  saveData();
+};
 
 getData();
 
