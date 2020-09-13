@@ -40,11 +40,19 @@ textarea {
   display: flex;
 }
 
+@font-face {
+  font-family: doraemon;
+  src: url("./font/DORAEMON.ttf");
+ }
+
 body {
   background-image: url("https://images6.alphacoders.com/475/475509.jpg");
   background-position-x: right;
   background-size: cover;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
+
+
 /* END OF WILLIAM'S PART*/
 
 /* START OF JUN YOUNG'S PART*/
