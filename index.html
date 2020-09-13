@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Twitter</title>
+		<title>Netlify ver</title>
 		<!-- font awesome -->
 		<link
 			rel="stylesheet"
@@ -94,17 +94,74 @@
 					<div class="col-12 col-sm-6 col-md-6">
 						<div class="todo-content">
 							<div class="input-area">
-								<input
-									type="text"
+								<textarea
+									rows="4"
+									cols="65"
 									id="tweetInput"
 									placeholder="Enter a tweet"
-								/>
-								<button id="addBtn" onclick="addTweet()">Tweet</button>
+									maxlength="140"
+								></textarea>
+								<div class="tweet-operation">
+									<span id="remain" class="mr-3"></span>
+									<button id="addBtn" onclick="addTweet()">Tweet</button>
+								</div>
 							</div>
 
 							<div class="todo-area">
 								<ul id="tweetList"></ul>
 							</div>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="pt-3 pr-5">
+							<input
+								class="form-control mr-sm-2"
+								type="search"
+								placeholder="Search..."
+								aria-label="Search"
+								id="search"
+							/>
+						</div>
+						<div id="trending" class="py-3 pr-5">
+							<ul class="list-group rounded">
+								<li class="list-group-item h5 list-styling">Trends for you</li>
+								<li class="list-group-item list-group-item-action">#Vietnam</li>
+								<li class="list-group-item list-group-item-action">
+									#Coderscool
+								</li>
+								<li class="list-group-item list-group-item-action">
+									#BurgersForLife
+								</li>
+								<li class="list-group-item list-group-item-action">#HCMC</li>
+								<li class="list-group-item list-group-item-action">#Pizza</li>
+							</ul>
+						</div>
+						<div id="toFollow" class="pr-5">
+							<ul class="list-group rounded">
+								<li class="list-group-item h5 list-styling">Who to follow</li>
+								<li class="list-group-item list-group-item-action">
+									@thisisme
+								</li>
+								<li class="list-group-item list-group-item-action">
+									@hellothere
+								</li>
+								<li class="list-group-item list-group-item-action">
+									@amazingsuperman
+								</li>
+								<li class="list-group-item list-group-item-action">
+									@choupichoupa
+								</li>
+								<li class="list-group-item list-group-item-action">
+									@wethebest
+								</li>
+							</ul>
+							<div class="row pt-2 px-1" style="justify-content: space-around">
+								<a class="small" href="#">Terms</a>
+								<a class="small" href="#">Privacy</a>
+								<a class="small" href="#">Cookies</a>
+								<a class="small" href="#">Ads</a>
+							</div>
+							<div class="small">© 2020 Twitter, Inc.</div>
 						</div>
 					</div>
 				</div>

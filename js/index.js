@@ -1,7 +1,12 @@
 // START OF HUONG'S PART
 
 let tweetList = [];
-let id = 0;
+let id = -1;
+
+let maxInput = 140;
+
+// input area
+let tweetInput = document.getElementById("tweetInput");
 
 const addTweet = () => {
 	//1. get the value from input
@@ -10,12 +15,16 @@ const addTweet = () => {
 		id++;
 		//2. insert into tweet list
 		let tweetItem = {
-			user: "Huong",
 			id: id,
-			like: false,
+			user: "Huong",
 			content: tweet,
+			timePosted: null,
+			deleted: false,
+			comments: [],
+			likes: [],
+			hashtag: [],
 		};
-		tweetList.push(tweetItem);
+		tweetList.unshift(tweetItem);
 
 		console.log(id);
 	}
@@ -31,6 +40,24 @@ const addTweet = () => {
 	// render tweet list
 	renderTweets(tweetList);
 };
+
+//check textarea input
+document.getElementById("tweetInput").addEventListener("input", (e) => {
+	let message = e.target.value;
+
+	let textRemain = maxInput - message.length;
+	document.getElementById("remain").innerHTML = `${textRemain} characters left`;
+
+	if (textRemain < 0) {
+		document.getElementById("remain").style = "color:red";
+		document.getElementById("addBtn").disabled = true;
+	} else {
+		document.getElementById("remain").style = "color:black";
+		document.getElementById("addBtn").disabled = false;
+	}
+});
+
+// --------------------------
 
 for (let i = 0; i < tweetList.length; i++) {
 	console.log(tweetList[i].user);
@@ -60,12 +87,12 @@ const renderTweets = (tweetList) => {
             <button class="btn retweetBtn" >
                 <i class="fa fa-retweet"></i>
                 <span class="retweet-count"></span>
-            </button>
-            <button class="btn heartBtn" onclick="toggleHeartColor(${item.id})">
+            </button> <span id="mainHeart"><button class="btn heartBtn" onclick="toggleHeartColor(${item.id})">
                 <i class="fa fa-heart"></i>
                 <span class="heart-count"></span>
-            </button>
-            <button class="btn heartBtn" >
+            </button></span>
+            
+            <button class="btn someBtn" >
                 <i class="fa fa-share-square"></i>
                 <span class="share-count"></span>
             </button>
@@ -80,52 +107,6 @@ const renderTweets = (tweetList) => {
 		.join("");
 
 	document.getElementById("tweetList").innerHTML = tweetsHTML;
-};
-
-const renderTodos = () => {
-	// clear
-	document.getElementById("todoList").innerHTML = "";
-	document.getElementById("completeList").innerHTM = "";
-
-	// show Todo list on web browser
-	let tempUndoneList = todoList.filter((task) => task.isDone == false);
-	let tempDoneList = todoList.filter((task) => task.isDone == true);
-	let unDoneHTML = tempUndoneList
-		.map(
-			(item) => `
-    <li>${item.content}
-        <div class="buttons">
-            <button class="btn deleteBtn" onclick="deleteTask(${item.id})">
-                <i class="fa fa-trash"></i>
-            </button>
-            <button class="btn completeBtn" onclick="completeTask(${item.id})">
-                <i class="fa fa-check-circle"></i>
-            </button>
-        </div>
-    </li>
-  `
-		)
-		.join("");
-
-	let doneHTML = tempDoneList
-		.map(
-			(item) => `
-      <li>${item.content}
-          <div class="buttons">
-              <button class="btn deleteBtn" onclick="deleteTask(${item.id})">
-                  <i class="fa fa-trash"></i>
-              </button>
-              <button class="btn completedBtn">
-                <i class="fa fa-check-circle"></i>
-            </button>
-          </div>
-      </li>
-    `
-		)
-		.join("");
-
-	document.getElementById("todoList").innerHTML = unDoneHTML;
-	document.getElementById("completeList").innerHTML = doneHTML;
 };
 
 const deleteTweet = (id) => {
@@ -153,16 +134,27 @@ const getData = () => {
 
 	renderTweets(tweetList);
 };
-
-// toggle heart color
+console.log("thisis", tweetList.length);
+//toggle heart color
 const toggleHeartColor = (id) => {
-	console.log(id);
-	let heart = document.querySelector(".heartBtn ");
-	heart.classList.add("hearted");
+	//console.log("heart", id);
+	// document, getElementById("mainHeart");
+	let i;
+	let heart = document.querySelectorAll(".heartBtn ");
+	for (i = id; i < heart.length; i++) {
+		let heart = document.querySelectorAll(".heartBtn ")[i];
+		console.log("length", heart);
+		if (!heart.classList.contains("hearted") && (i = id)) {
+			heart.classList.add("hearted");
+		} else {
+			heart.classList.remove("hearted");
+		}
+	}
 };
 
 getData();
-
+// let test = document.getElementById("mainHeart");
+// console.log("pls", test);
 // END OF HUONG'S PART
 
 // START OF WILLIAM'S PART
