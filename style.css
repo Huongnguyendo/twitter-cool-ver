@@ -50,6 +50,8 @@ body {
 	background-position-x: right;
 	background-size: cover;
 	font-family: "Comic Sans MS", cursive, sans-serif;
+	margin-bottom: 100px;
+	min-height: auto;
 }
 
 /* END OF WILLIAM'S PART*/
