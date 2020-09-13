@@ -39,21 +39,21 @@ textarea {
 
 /* START OF JUN YOUNG'S PART*/
 .jytwitterlogo1 {
-  padding-left: 2cm;
-  padding-top: 1cm;
+  /* padding-left: 2cm;
+  padding-top: 1cm; */
 }
 .jytwitterlogo2 {
   width: auto;
   height: 3cm;
 }
 .jynav1 {
-  font-size: 0.8cm;
-  padding-left: 0.7cm;
+  font-size: 1.2rem;
+  /* padding-left: 0.7cm; */
 }
 .jynav2 {
   padding-top: 0.5cm;
   /* background-color: black; */
-  width: 6.5cm;
+  /* width: 6.5cm; */
 }
 .jynav2:hover {
   color: #1da1f2;
