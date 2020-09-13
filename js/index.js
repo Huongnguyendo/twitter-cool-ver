@@ -2,7 +2,7 @@
 let currentUser = prompt("Welcome back: ");
 console.log(currentUser);
 
-let defaultAccount = "@JaianInTown";
+let defaultAccount = "@preciousUser";
 
 let id = 0;
 let hashtag = [];
