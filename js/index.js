@@ -109,7 +109,9 @@ const renderTweets = (tweetList) => {
                     <p class="card-text">${item.retweetMessage}</p>
                     
                     <div>
-                      <button class="btn commentBtn" >
+                      <button class="btn commentBtn" onclick="comment('${
+                        item.id
+                      }')">
                           <i class="fa fa-comment"></i>
                           <span class="comment-count"></span>
                       </button>
@@ -211,7 +213,9 @@ const renderTweets = (tweetList) => {
                     </h5>
                     <p class="card-text">${item.content}</p>
                     <div>
-                      <button class="btn commentBtn" >
+                      <button class="btn commentBtn" onclick="comment('${
+                        item.id
+                      }')">
                           <i class="fa fa-comment"></i>
                           <span class="comment-count"></span>
                       </button>
