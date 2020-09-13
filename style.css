@@ -1,69 +1,124 @@
 /* START OF HUONG'S PART */
 textarea {
-  width: 100%;
+	width: 100%;
 }
 
 .hearted {
-  color: red;
+	color: red;
 }
 
 #tweetList {
-  padding-inline-start: 0 !important;
+	padding-inline-start: 0 !important;
 }
 
 .tweet-operation {
-  display: flex;
-  justify-content: flex-end;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .tweet-content {
-  word-break: break-all;
+	word-break: break-all;
 }
 /* END OF HUONG'S PART*/
 
 /* START OF WILLIAM'S PART*/
 #search {
-  border-radius: 30px;
-  height: 10px;
-  padding: 20px;
-  position: relative;
-  width: 100%;
-  background-color: #e6ecf0;
+	border-radius: 30px;
+	height: 10px;
+	padding: 20px;
+	position: relative;
+	width: 100%;
+	background-color: #e6ecf0;
 }
 
 .list-styling {
-  background-color: #e6ecf0;
-  margin-bottom: 0px;
+	background-color: #e6ecf0;
+	margin-bottom: 0px;
 }
+
+.jynav3 {
+	display: flex;
+}
+
+@font-face {
+	font-family: doraemon;
+	src: url("./font/DORAEMON.ttf");
+}
+
+body {
+	background-image: url("https://images6.alphacoders.com/475/475509.jpg");
+	background-position-x: right;
+	background-size: cover;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
 /* END OF WILLIAM'S PART*/
 
 /* START OF JUN YOUNG'S PART*/
-.jytwitterlogo1 {
-  padding-left: 2cm;
-  padding-top: 1cm;
-}
+/* .jytwitterlogo1 { */
+/* padding-left: 2cm;
+  padding-top: 1cm; */
+/* } */
 .jytwitterlogo2 {
-  width: auto;
-  height: 3cm;
+	width: 3cm;
+	height: 3cm;
+	border-radius: 50%;
 }
 .jynav1 {
-  font-size: 0.8cm;
-  padding-left: 0.7cm;
+	font-size: 1.2rem;
+	/* padding-left: 0.7cm; */
 }
 .jynav2 {
-  padding-top: 0.5cm;
-  /* background-color: black; */
-  width: 6.5cm;
+	padding-top: 0.5cm;
+	/* background-color: black; */
+	/* width: 6.5cm; */
 }
 .jynav2:hover {
-  color: #1da1f2;
-  text-shadow: 0px 0px 30px #1da1f2;
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+	color: #1da1f2;
+	text-shadow: 0px 0px 30px #1da1f2;
+	-moz-transition: all 0.2s ease-in;
+	-o-transition: all 0.2s ease-in;
+	-webkit-transition: all 0.2s ease-in;
+	transition: all 0.2s ease-in;
 }
 .jynavicon {
-  padding-right: 0.5cm;
+	padding-right: 0.5cm;
+	font-size: xx-large;
+}
+
+.card {
+	border-radius: 25px;
+}
+#addBtn {
+	padding: 5px 10px;
+	border-radius: 15px;
+	background-color: rgb(253, 202, 107);
+}
+#addBtn:hover {
+	background-color: rgb(252, 185, 62);
+	transition: 0.25s;
+}
+
+footer {
+	background-color: rgb(130, 191, 248);
+	height: 100px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+.footerWords {
+	display: flex;
+	justify-content: center;
+}
+.footerRealWords {
+	color: white;
+}
+.jyDorLogo {
+	display: flex;
+	justify-content: center;
+}
+.jyRealDor {
+	height: auto;
+	width: 120px;
 }
 /* END OF JUN YOUNG'S PART*/
