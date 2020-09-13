@@ -35,6 +35,10 @@ textarea {
   background-color: #e6ecf0;
   margin-bottom: 0px;
 }
+
+.jynav3 {
+  display: flex;
+}
 /* END OF WILLIAM'S PART*/
 
 /* START OF JUN YOUNG'S PART*/
@@ -65,5 +69,6 @@ textarea {
 }
 .jynavicon {
   padding-right: 0.5cm;
+  font-size: xx-large;
 }
 /* END OF JUN YOUNG'S PART*/
