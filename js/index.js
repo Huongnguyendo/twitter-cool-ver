@@ -1,6 +1,5 @@
 // START OF HUONG'S PART
 let currentUser = prompt("Welcome back: ");
-console.log(currentUser);
 
 let defaultAccount = "@preciousUser";
 
@@ -9,8 +8,6 @@ let hashtag = [];
 let userHandle = [];
 
 let tweetList = [];
-
-console.log("tweetlistnew: ", tweetList);
 
 let maxInput = 140;
 
@@ -57,8 +54,6 @@ const addTweet = () => {
       hashtag: [],
     };
     tweetList.unshift(tweetItem);
-
-    console.log(id, "hastag:", hashtag, "currentUser:", currentUser);
   }
 
   // clear input field
@@ -100,6 +95,13 @@ const renderTweets = (tweetList) => {
   let tweetsHTML = tweetList
     .map((item) => {
       //when tweet has retweets
+      // if liked
+      if (item.liked) {
+        heart = `<i class="fas fa-heart fill-red"></i>`;
+      } else {
+        heart = `<i class="far fa-heart fill-none"></i>`;
+      }
+
       if (item.originTweetID) {
         return `
         <div class="card" style="width: 100%;">
@@ -131,10 +133,10 @@ const renderTweets = (tweetList) => {
                           <i class="fa fa-retweet"></i>
                           <span class="retweet-count"></span>
                       </button>
-                      <button class="btn heartBtn" id="heart" onclick="toggleLike('${
+                      <button class="btn heartBtn" onclick="toggleLike('${
                         item.id
                       }')">
-                          <i class="fa fa-heart"></i>
+                          ${heart}
                           <span class="heart-count"></span>
                       </button>
                       <button class="btn shareBtn" >
@@ -241,10 +243,10 @@ const renderTweets = (tweetList) => {
                           <i class="fa fa-retweet"></i>
                           <span class="retweet-count"></span>
                       </button>
-                      <button class="btn heartBtn" id="heart" onclick="toggleLike('${
+                      <button class="btn heartBtn" onclick="toggleLike('${
                         item.id
                       }')">
-                          <i class="fa fa-heart"></i>
+                      ${heart}
                           <span class="heart-count"></span>
                       </button>
                       <button class="btn shareBtn" >
@@ -295,10 +297,10 @@ const renderTweets = (tweetList) => {
                                     <i class="fa fa-retweet"></i>
                                     <span class="retweet-count"></span>
                                 </button>
-                                <button class="btn heartBtn" id="heart" onclick="toggleLike('${
+                                <button class="btn heartBtn" onclick="toggleLike('${
                                   item.id
                                 }')">
-                                    <i class="fa fa-heart"></i>
+                                ${heart}
                                     <span class="heart-count"></span>
                                 </button>
                                 <button class="btn shareBtn" >
@@ -328,8 +330,6 @@ const renderTweets = (tweetList) => {
 const deleteTweet = (id) => {
   // edited for parent att
   let updatedTweetList = tweetList.filter((item) => {
-    console.log("deletenumber ", id);
-
     if (item.id == id || item.originTweetID == id) {
       return false;
     }
@@ -397,7 +397,7 @@ const retweet = (originID) => {
 // comment func
 const comment = (originID) => {
   let originTweet = tweetList.find((tweet) => tweet.id == originID);
-  let commentContent = prompt("Add a comment "); //get comment content
+  let commentContent = prompt("Add a comment ");
   id++;
   let commentObject = {
     id: id,
@@ -424,19 +424,12 @@ const comment = (originID) => {
 
 const toggleLike = (originID) => {
   let targetTweet = tweetList.find((tweet) => tweet.id == originID);
-  // let targetIndex = tweetList.findIndex((tweet) => tweet.id == originID);
+  let targetIndex = tweetList.findIndex((tweet) => tweet.id == originID);
 
-  targetTweet.liked = !targetTweet.liked;
+  tweetList[targetIndex].liked = !tweetList[targetIndex].liked;
+  console.log("tweetListlike", tweetList);
 
-  if (targetTweet.liked) {
-    document.getElementById("heart").style = "color:red";
-  } else {
-    document.getElementById("heart").style = "color:black";
-  }
-
-  // tweetList[targetIndex].liked = targetTweet.liked;
-
-  saveData();
+  renderTweets(tweetList);
 };
 
 getData();
